@@ -9,7 +9,7 @@ Details will be updated soon.
 
 Requirement:
 ======
-	Python: 2.7   
+	Python: 2.7   → 3.6  
 	PyTorch: 0.3
 
 Input format:
