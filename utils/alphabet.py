@@ -69,13 +69,13 @@ class Alphabet:
         # else:
         return len(self.instances) + 1
 
-    def iteritems(self):
-        return self.instance2index.iteritems()
+    def items(self):
+        return iter(self.instance2index.items())
 
     def enumerate_items(self, start=1):
         if start < 1 or start >= self.size():
             raise IndexError("Enumerate is allowed between [1 : size of the alphabet)")
-        return zip(range(start, len(self.instances) + 1), self.instances[start - 1:])
+        return list(zip(list(range(start, len(self.instances) + 1)), self.instances[start - 1:]))
 
     def close(self):
         self.keep_growing = False
@@ -101,7 +101,7 @@ class Alphabet:
         try:
             json.dump(self.get_content(), open(os.path.join(output_directory, saving_name + ".json"), 'w'))
         except Exception as e:
-            print("Exception: Alphabet is not saved: " % repr(e))
+            print(("Exception: Alphabet is not saved: " % repr(e)))
 
     def load(self, input_directory, name=None):
         """
